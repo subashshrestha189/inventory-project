@@ -7,6 +7,12 @@ class InventoryTracker:
         print(f"{item} added with quantity {quantity}")
 
     def checkStockLevel(self, item):
-    quantity = self.inventory.get(item, 0)
-    print(f"{item} stock level: {quantity}")
-    return quantity
+        quantity = self.inventory.get(item, 0)
+        print(f"{item} stock level: {quantity}")
+        return quantity
+    
+    def alertLowStock(self, item, threshold=5):
+        quantity = self.inventory.get(item, 0)
+        if quantity < threshold:
+            print(f"ALERT: {item} is low on stock! Only {quantity} left.")
+
